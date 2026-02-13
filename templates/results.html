@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculation Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .results {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .result-value {
+            color: #333;
+        }
+        .profit {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .profit.positive {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .profit.negative {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Calculation Results</h1>
+    
+    <div class="results">
+        <div class="result-row">
+            <span class="result-label">Total Revenue:</span>
+            <span class="result-value">${{ "%.2f"|format(revenue) }}</span>
+        </div>
+        
+        <div class="result-row">
+            <span class="result-label">Fixed Expenses:</span>
+            <span class="result-value">${{ "%.2f"|format(fixed_expenses) }}</span>
+        </div>
+        
+        <div class="result-row">
+            <span class="result-label">Variable Expenses:</span>
+            <span class="result-value">${{ "%.2f"|format(variable_expenses) }}</span>
+        </div>
+        
+        <div class="result-row">
+            <span class="result-label">Total Expenses:</span>
+            <span class="result-value">${{ "%.2f"|format(total_expenses) }}</span>
+        </div>
+        
+        <div class="profit {% if profit >= 0 %}positive{% else %}negative{% endif %}">
+            Net Profit: ${{ "%.2f"|format(profit) }}
+        </div>
+        
+        <button onclick="window.location.href='/'">Calculate Again</button>
+    </div>
+</body>
+</html>
